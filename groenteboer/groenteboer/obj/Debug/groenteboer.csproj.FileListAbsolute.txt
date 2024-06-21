@@ -84,3 +84,4 @@ C:\Users\samuel\OneDrive - COG\Documenten\GitHub\GroenteboerAPP\groenteboer\groe
 C:\Users\samuel\OneDrive - COG\Documenten\GitHub\GroenteboerAPP\groenteboer\groenteboer\obj\Debug\groenteboer.csproj.CopyComplete
 C:\Users\samuel\OneDrive - COG\Documenten\GitHub\GroenteboerAPP\groenteboer\groenteboer\obj\Debug\groenteboer.exe
 C:\Users\samuel\OneDrive - COG\Documenten\GitHub\GroenteboerAPP\groenteboer\groenteboer\obj\Debug\groenteboer.pdb
+C:\Users\samuel\OneDrive - COG\Documenten\GitHub\GroenteboerAPP\groenteboer\groenteboer\obj\Debug\groenteboer.UserControl2.resources
