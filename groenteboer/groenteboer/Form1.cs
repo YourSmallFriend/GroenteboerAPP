@@ -30,9 +30,8 @@ namespace groenteboer
             foreach (var item in groentenLijst)
             {
                 UserControl1 uc = new UserControl1();
-                uc.SetContent(item.Item1, item.Item2);
+                uc.SetContent(item.Item1, item.Item2, item.Item3);
                 uc.Size = new Size(200, 200); // Set a size for the user control
-
                 flowLayoutPanel1.Controls.Add(uc);
             }
         }

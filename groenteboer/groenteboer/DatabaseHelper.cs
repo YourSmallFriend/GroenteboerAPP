@@ -20,9 +20,9 @@ namespace groenteboer
             ConnectionString = connectionString;
         }
 
-        public List<Tuple<string, string>> GetGroenten()
+        public List<Tuple<string, string, string>> GetGroenten()
         {
-            var groentenLijst = new List<Tuple<string, string>>();
+            var groentenLijst = new List<Tuple<string, string, string>>();
 
             using (MySqlConnection connection = new MySqlConnection(ConnectionString))
             {
@@ -37,7 +37,8 @@ namespace groenteboer
                     {
                         var imgPath = reader["plaatje"].ToString();
                         var groenten = reader["groenten/fruit"].ToString();
-                        groentenLijst.Add(new Tuple<string, string>(groenten, imgPath));
+                        var prijs = reader["prijs (kilo)"].ToString();
+                        groentenLijst.Add(new Tuple<string, string, string>(groenten, imgPath, prijs));
                     }
                     reader.Close();
                 }

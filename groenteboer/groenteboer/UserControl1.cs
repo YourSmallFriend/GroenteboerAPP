@@ -19,15 +19,15 @@ namespace groenteboer
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
-        public void SetContent(string groenten, string plaatjePath)
+        public void SetContent(string groenten, string plaatjePath, string prijs)
         {
             label1.Text = groenten;
             pictureBox1.Image = Image.FromFile(plaatjePath);
+            label2.Text = "€" + prijs + " per kilo";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
