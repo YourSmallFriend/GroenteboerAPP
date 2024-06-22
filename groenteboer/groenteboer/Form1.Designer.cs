@@ -60,9 +60,9 @@
             // userControl21
             // 
             this.userControl21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.userControl21.Location = new System.Drawing.Point(611, 275);
+            this.userControl21.Location = new System.Drawing.Point(608, 275);
             this.userControl21.Name = "userControl21";
-            this.userControl21.Size = new System.Drawing.Size(333, 302);
+            this.userControl21.Size = new System.Drawing.Size(336, 302);
             this.userControl21.TabIndex = 2;
             // 
             // Form1

@@ -44,6 +44,7 @@
             this.btnEnter = new System.Windows.Forms.Button();
             this.btnKilo = new System.Windows.Forms.Button();
             this.btn00 = new System.Windows.Forms.Button();
+            this.btndel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn1
@@ -69,7 +70,7 @@
             this.textBox1.Location = new System.Drawing.Point(4, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(318, 56);
+            this.textBox1.Size = new System.Drawing.Size(237, 56);
             this.textBox1.TabIndex = 2;
             // 
             // btn3
@@ -83,7 +84,7 @@
             // 
             // btnGram
             // 
-            this.btnGram.Location = new System.Drawing.Point(247, 188);
+            this.btnGram.Location = new System.Drawing.Point(247, 184);
             this.btnGram.Name = "btnGram";
             this.btnGram.Size = new System.Drawing.Size(75, 55);
             this.btnGram.TabIndex = 4;
@@ -165,7 +166,7 @@
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(247, 66);
+            this.btnEnter.Location = new System.Drawing.Point(247, 5);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(75, 55);
             this.btnEnter.TabIndex = 14;
@@ -174,7 +175,7 @@
             // 
             // btnKilo
             // 
-            this.btnKilo.Location = new System.Drawing.Point(247, 127);
+            this.btnKilo.Location = new System.Drawing.Point(247, 245);
             this.btnKilo.Name = "btnKilo";
             this.btnKilo.Size = new System.Drawing.Size(75, 55);
             this.btnKilo.TabIndex = 15;
@@ -190,10 +191,20 @@
             this.btn00.Text = "00";
             this.btn00.UseVisualStyleBackColor = true;
             // 
+            // btndel
+            // 
+            this.btndel.Location = new System.Drawing.Point(247, 66);
+            this.btndel.Name = "btndel";
+            this.btndel.Size = new System.Drawing.Size(75, 55);
+            this.btndel.TabIndex = 17;
+            this.btndel.Text = "Delete";
+            this.btndel.UseVisualStyleBackColor = true;
+            // 
             // UserControl2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btndel);
             this.Controls.Add(this.btn00);
             this.Controls.Add(this.btnKilo);
             this.Controls.Add(this.btnEnter);
@@ -235,5 +246,6 @@
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.Button btnKilo;
         private System.Windows.Forms.Button btn00;
+        private System.Windows.Forms.Button btndel;
     }
 }
