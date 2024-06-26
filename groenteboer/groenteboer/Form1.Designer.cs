@@ -30,6 +30,7 @@
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.userControl21 = new groenteboer.UserControl2();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -41,7 +42,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(593, 565);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(461, 565);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // dataGridView1
@@ -50,20 +51,31 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(611, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(479, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(321, 257);
+            this.dataGridView1.Size = new System.Drawing.Size(453, 257);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(480, 275);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 46);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "delete";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // userControl21
             // 
             this.userControl21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.userControl21.Location = new System.Drawing.Point(608, 275);
+            this.userControl21.Location = new System.Drawing.Point(596, 275);
             this.userControl21.Name = "userControl21";
             this.userControl21.Size = new System.Drawing.Size(336, 302);
             this.userControl21.TabIndex = 2;
+            this.userControl21.Visible = false;
             // 
             // Form1
             // 
@@ -71,6 +83,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(944, 589);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.userControl21);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -90,6 +103,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private UserControl2 userControl21;
+        private System.Windows.Forms.Button button1;
     }
 }
 
