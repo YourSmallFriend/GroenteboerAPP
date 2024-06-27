@@ -129,3 +129,4 @@ C:\Users\samuel\OneDrive\Documenten\GitHub\GroenteboerAPP\groenteboer\groenteboe
 C:\Users\samuel\OneDrive\Documenten\GitHub\GroenteboerAPP\groenteboer\groenteboer\obj\Debug\groenteboer.csproj.CopyComplete
 C:\Users\samuel\OneDrive\Documenten\GitHub\GroenteboerAPP\groenteboer\groenteboer\obj\Debug\groenteboer.exe
 C:\Users\samuel\OneDrive\Documenten\GitHub\GroenteboerAPP\groenteboer\groenteboer\obj\Debug\groenteboer.pdb
+C:\Users\samuel\OneDrive\Documenten\GitHub\GroenteboerAPP\groenteboer\groenteboer\obj\Debug\groenteboer.Form2.resources

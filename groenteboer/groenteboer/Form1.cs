@@ -32,6 +32,8 @@ namespace groenteboer
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            OpenFormOnSecondScreen();
+
             var groentenLijst = dbHelper.GetGroenten();
 
             foreach (var item in groentenLijst)
@@ -150,6 +152,36 @@ namespace groenteboer
                 // Hide the delete button
                 button1.Visible = false;
                 selectedRowIndex = -1;
+            }
+        }
+
+        private void OpenFormOnSecondScreen()
+        {
+            // Get all screens
+            Screen[] screens = Screen.AllScreens;
+
+            // Check if there is more than one screen
+            if (screens.Length > 1)
+            {
+                // Get the second screen (assuming second screen is the second in the array)
+                Screen secondScreen = screens[1];
+
+                // Create an instance of ExtraForm
+                Form extraForm = new Form();
+
+                // Set the location of the extra form to the second screen
+                extraForm.StartPosition = FormStartPosition.Manual;
+                extraForm.Location = new Point(secondScreen.Bounds.Left, secondScreen.Bounds.Top);
+
+                // Optionally maximize the form to fit the screen
+                extraForm.WindowState = FormWindowState.Maximized;
+
+                // Show the extra form
+                extraForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Only one screen detected. Please connect a second screen to use this feature.");
             }
         }
     }
