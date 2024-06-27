@@ -20,7 +20,7 @@ namespace groenteboer
         public void SetContent(string groenten, string plaatjePath, string prijs)
         {
             label1.Text = groenten;
-            label2.Text = "€" + prijs + " kg ";
+            label2.Text = prijs;
 
             // Check if the image path exists before setting the image
             if (System.IO.File.Exists(plaatjePath))

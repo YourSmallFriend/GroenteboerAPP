@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Diagnostics.PerformanceData;
 
 namespace groenteboer
 {
@@ -21,6 +22,7 @@ namespace groenteboer
         private decimal totalPrice = 0m;
         private int totalRowIndex;
         private int selectedRowIndex = -1;
+        private ExtraForm extraForm;
 
         public Form1()
         {
@@ -116,6 +118,7 @@ namespace groenteboer
                 }
 
                 selectedProduct = null; // Reset selected product
+                UpdateSecondFormDataGridView();
             }
             else
             {
@@ -152,6 +155,7 @@ namespace groenteboer
                 // Hide the delete button
                 button1.Visible = false;
                 selectedRowIndex = -1;
+                UpdateSecondFormDataGridView();
             }
         }
 
@@ -163,25 +167,122 @@ namespace groenteboer
             // Check if there is more than one screen
             if (screens.Length > 1)
             {
-                // Get the second screen (assuming second screen is the second in the array)
-                Screen secondScreen = screens[1];
+                // Prompt the user to select the main screen for Form1
+                DialogResult result = MessageBox.Show("Is dit je hoofdscherm?", "Hoofdscherm selectie", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                // Create an instance of ExtraForm
-                Form extraForm = new Form();
+                // Initialize Form1 on the selected main screen
+                if (result == DialogResult.Yes)
+                {
+                    Screen mainScreenForm1 = screens[0];
+                    this.StartPosition = FormStartPosition.Manual;
+                    this.Location = mainScreenForm1.Bounds.Location;
+                    this.WindowState = FormWindowState.Maximized;
+                }
+                else
+                {
+                    Screen mainScreenForm1 = screens[1];
+                    this.StartPosition = FormStartPosition.Manual;
+                    this.Location = mainScreenForm1.Bounds.Location;
+                    this.WindowState = FormWindowState.Maximized;
+                }
 
-                // Set the location of the extra form to the second screen
+                // Initialize ExtraForm on the other screen
+                Screen mainScreenExtraForm = (result == DialogResult.Yes) ? screens[1] : screens[0];
+                extraForm = new ExtraForm();
                 extraForm.StartPosition = FormStartPosition.Manual;
-                extraForm.Location = new Point(secondScreen.Bounds.Left, secondScreen.Bounds.Top);
-
-                // Optionally maximize the form to fit the screen
+                extraForm.Location = mainScreenExtraForm.Bounds.Location;
                 extraForm.WindowState = FormWindowState.Maximized;
-
-                // Show the extra form
                 extraForm.Show();
             }
             else
             {
-                MessageBox.Show("Only one screen detected. Please connect a second screen to use this feature.");
+                // Only one screen detected, use default behavior
+                MessageBox.Show("Slechts één scherm gedetecteerd. Verbind een tweede scherm om deze functie te gebruiken.", "Geen tweede scherm", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+
+
+        private void UpdateSecondFormDataGridView()
+        {
+            if (extraForm != null)
+            {
+                extraForm.SetData(dataGridView1);
+            }
+        }
+
+        // Define the ExtraForm class within the same file
+        public class ExtraForm : Form
+        {
+            public DataGridView dataGridView2 { get; private set; }
+
+            public ExtraForm()
+            {
+                InitializeComponent();
+
+                // Initialize DataGridView
+                dataGridView2 = new DataGridView();
+                dataGridView2.Dock = DockStyle.Fill;
+                dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Columns fill the available width
+
+                // Add DataGridView to the form's controls
+                this.Controls.Add(dataGridView2);
+
+                // Handle form load event to adjust column widths after data is set
+                this.Load += ExtraForm_Load;
+            }
+
+            // Method to set DataGridView data
+            public void SetData(DataGridView dataGridView1)
+            {
+                // Clear existing columns and rows
+                dataGridView2.Columns.Clear();
+                dataGridView2.Rows.Clear();
+
+                // Copy columns
+                foreach (DataGridViewColumn column in dataGridView1.Columns)
+                {
+                    dataGridView2.Columns.Add((DataGridViewColumn)column.Clone());
+                }
+
+                // Copy rows
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        DataGridViewRow newRow = new DataGridViewRow();
+                        newRow.CreateCells(dataGridView2);
+
+                        for (int i = 0; i < row.Cells.Count; i++)
+                        {
+                            newRow.Cells[i].Value = row.Cells[i].Value;
+                        }
+
+                        dataGridView2.Rows.Add(newRow);
+                    }
+                }
+
+                // Auto resize columns after data is set
+                dataGridView2.AutoResizeColumns();
+            }
+
+            // Adjust column widths on form load
+            private void ExtraForm_Load(object sender, EventArgs e)
+            {
+                dataGridView2.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader);
+            }
+
+            // InitializeComponent method for completeness (you might want to use your designer-generated method)
+            private void InitializeComponent()
+            {
+                this.SuspendLayout();
+                // 
+                // ExtraForm
+                // 
+                this.ClientSize = new System.Drawing.Size(800, 450);
+                this.Name = "ExtraForm";
+                this.ResumeLayout(false);
             }
         }
     }
